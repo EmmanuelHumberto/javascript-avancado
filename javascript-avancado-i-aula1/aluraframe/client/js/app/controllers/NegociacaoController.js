@@ -16,13 +16,23 @@ class NegociacaoController {
     adiciona(event){
         event.preventDefault();
 
-        /*O método replace() retorna uma nova string com algumas
-        ou todas as correspondências de um padrão substituídas por
-        um determinado caractere (ou caracteres).
-        O padrão pode ser uma string ou uma RegExp, e a substituição
-        pode ser uma string ou uma função a ser chamada para cada correspondência.
-        Se o padrão for uma string, apenas a primeira ocorrência será substituída.*/
-        let data = new Date(this._inputData.value.replace(/-/g, ','));
+
+        let data = new Date(...
+
+            this._inputData.value
+
+                /*O método split() divide uma String em uma lista ordenada
+                 de substrings, coloca essas substrings em um array e retorna
+                 o array. A divisão é feita procurando um padrão, onde o padrão
+                 é fornecido como o primeiro parâmetro na chamada do método.*/
+                .split('-')
+
+                /*O método map() invoca a função callback passada
+                por argumento para cada elemento do Array e devolve
+                um novo Array como resultado.*/
+                .map(function (item, indice)
+                    {return item - indice % 2})
+        );
         console.log(data);
 
     }
