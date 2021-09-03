@@ -22,14 +22,7 @@ class Negociacao {
     de acordo com o horário universal*/
     return new Date(this._data.getTime());
     }
-    recuperaQuantidade(){
-        this._quantidade;
-    }
-    recuperaValor(){
-        this._valor
-    }
-    recuperaVolume(){
-        this._quantidade * this._valor
-
-    }
+    recuperaQuantidade = () => { this._quantidade }
+    recuperaValor = () => { this._valor }
+    recuperaVolume = () => { this._quantidade * this._valor }
 }
