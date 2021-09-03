@@ -16,7 +16,9 @@ class NegociacaoController {
     adiciona(event){
         event.preventDefault();
 
-
+        /*O operador spread '...' é uma sintaxe útil e rápida para
+        adicionar itens a arrays, combinar arrays ou objetos
+        e espalhar um array em argumentos de uma função.*/
         let data = new Date(...
 
             this._inputData.value
@@ -30,10 +32,19 @@ class NegociacaoController {
                 /*O método map() invoca a função callback passada
                 por argumento para cada elemento do Array e devolve
                 um novo Array como resultado.*/
-                .map(function (item, indice)
-                    {return item - indice % 2})
+                .map((item, indice) => {return item - indice % 2})
         );
-        console.log(data);
 
+        let negociacao = new Negociacao(
+            data,
+            this._inputQuantidade.value,
+            this._inputValor.value
+        );
+
+        /*Formatando data*/
+        let diaMesAno = negociacao.recuperaData().getDate()
+            + '/' + (negociacao.recuperaData().getMonth() + 1)
+            + '/' + negociacao.recuperaData().getFullYear()
+        console.log(diaMesAno);
     }
 }
