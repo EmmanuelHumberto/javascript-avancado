@@ -1,14 +1,22 @@
 class DateHelpers {
 
-    dataParaTexto(data) {
+    constructor() {
 
-        /*Formatando data*/
-        return data.getDate()
-            + '/' + (data.getMonth() + 1)
-            + '/' + data.getFullYear()
+        throw new Error('DateHelper não pode ser instanciada');
     }
 
-    textoParaData(texto) {
+    static dataParaTexto(data) {
+
+        /*Formatando data*/
+        /*Template string `${}`  interpolação */
+        return ` ${ data.getDate() }/${ data.getMonth() + 1 }/${ data.getFullYear() } `;
+    }
+
+    static textoParaData(texto) {
+
+        /*-Verifica testando se a expressão regular é verdadeira */
+        if(!/\d{4}-\d{2}-\d{2}/.test(texto))
+            throw new Error('Deve estar no formato aaaa-mm-dd');
 
         return new Date(...
 
